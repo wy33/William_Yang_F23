@@ -1,12 +1,14 @@
 #pragma once
 
 #include "pch.h"
+
 #include "Utilities.h"
+#include "GameWindow.h"
 
 namespace egg
 {
 	template<typename T>
-	class EGG_API EggApp
+	class EggApp
 	{
 	public:
 		static void Init();
@@ -21,6 +23,8 @@ namespace egg
 		EggApp();	// Singleton class, hide default constructor
 
 		inline static EggApp* sInstance{ nullptr };		// Pointer to singleton instance
+
+		GameWindow mWindow;
 
 		bool mShouldContinue{ true };	// Determines if app continues to run
 
@@ -46,9 +50,14 @@ namespace egg
 	template<typename T>
 	void EggApp<T>::Run()
 	{
+		mWindow.Create("Game WY", 1000, 800);
+
 		while (mShouldContinue)
 		{
 			OnUpdate();
+
+			mWindow.SwapBuffers();
+			mWindow.PollEvents();
 		}
 	}
 
