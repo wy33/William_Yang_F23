@@ -19,4 +19,4 @@ add_subdirectory(glfw)
 add_subdirectory(Egg)
 add_subdirectory(Game_WY)
 
-set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT)
+set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT Game_WY)
