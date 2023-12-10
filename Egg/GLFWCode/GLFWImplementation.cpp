@@ -1,6 +1,7 @@
 #include "pch.h"
 
 #include "GLFWImplementation.h"
+#include "Utilities.h"
 
 // Where we actually implement GLFW code
 
@@ -16,7 +17,41 @@ namespace egg
 
 	void GLFWImplementation::Create(const std::string& name, int width, int height)
 	{
-		mWindow = glfwCreateWindow(800, 600, "Game_WY", NULL, NULL);
+		mWindow = glfwCreateWindow(width, height, "Game_WY", NULL, NULL);
+
+		if (mWindow == NULL)
+		{
+			EGG_ERROR("Failed to create GLFW window");
+			glfwTerminate();
+			return;
+		}
+
+		glfwMakeContextCurrent(mWindow);
+
+		glfwSetWindowUserPointer(mWindow, &mCallbacks);
+
+		// ERROR HERE?
+		glfwSetKeyCallback(mWindow, [](GLFWwindow* window, int keycode, int scancode, int action, int mods) {
+			if (action == GLFW_PRESS)
+			{
+				Callbacks* callbacks{ (Callbacks*)glfwGetWindowUserPointer(window) };
+
+				KeyPressed e{ keycode };
+				callbacks->keyPressedFunc(e);
+			}
+			else if (action == GLFW_RELEASE)
+			{
+				Callbacks* callbacks{ (Callbacks*)glfwGetWindowUserPointer(window) };
+
+				KeyReleased e{ keycode };
+				callbacks->keyReleasedFunc(e);
+			}
+		});
+
+		glfwSetWindowCloseCallback(mWindow, [](GLFWwindow* window) {
+			Callbacks* callbacks{ (Callbacks*)glfwGetWindowUserPointer(window) };
+			callbacks->windowCloseFunc();
+		});
 	}
 
 	int GLFWImplementation::GetHeight() const
@@ -43,4 +78,18 @@ namespace egg
 		glfwPollEvents();
 	}
 
-}
+	void GLFWImplementation::SetKeyPressedCallback(std::function<void(const KeyPressed&)>& callbackFunc)
+	{
+		mCallbacks.keyPressedFunc = callbackFunc;
+	}
+
+	void GLFWImplementation::SetKeyReleasedCallback(std::function<void(const KeyReleased&)>& callbackFunc)
+	{
+		mCallbacks.keyReleasedFunc = callbackFunc;
+	}
+
+	void GLFWImplementation::SetWindowCloseCallback(std::function<void()>& callbackFunc)
+	{
+		mCallbacks.windowCloseFunc = callbackFunc;
+	}
+}	

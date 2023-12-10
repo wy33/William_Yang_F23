@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <VCProjectVersion>16.0</VCProjectVersion>
+    <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{f1f61bbe-a4ea-47a9-a992-4699aff8176a}</ProjectGuid>
-    <RootNamespace>Egg</RootNamespace>
+    <ProjectGuid>{7c3e8681-80a3-4f4f-8668-5cba69c9480c}</ProjectGuid>
+    <RootNamespace>glad</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -40,13 +40,13 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -102,12 +102,9 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>EGG_DEBUG=2;_DEBUG;_CONSOLE;%(PreprocessorDefinitions);EGG_LIB;EGG_LIB;EGG_MSCPP</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)stbi;$(SolutionDir)glad\include;$(SolutionDir)glfw\include;$(SolutionDir)Egg</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -120,12 +117,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);EGG_LIB;EGG_LIB;EGG_MSCPP</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp20</LanguageStandard>
-      <PrecompiledHeader>Use</PrecompiledHeader>
-      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)stbi;$(SolutionDir)glad\include;$(SolutionDir)glfw\include;$(SolutionDir)Egg</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)glad\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -135,53 +129,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="EggApp.h" />
-    <ClInclude Include="Events.h" />
-    <ClInclude Include="GameWindow.h" />
-    <ClInclude Include="GLFWCode\GLFWImplementation.h" />
-    <ClInclude Include="GLFWCode\OpenGLPicture.h" />
-    <ClInclude Include="GLFWCode\OpenGLRenderer.h" />
-    <ClInclude Include="GLFWCode\OpenGLShader.h" />
-    <ClInclude Include="include\Egg.h" />
-    <ClInclude Include="Keys.h" />
-    <ClInclude Include="pch.h" />
-    <ClInclude Include="Picture.h" />
-    <ClInclude Include="PictureImplementation.h" />
-    <ClInclude Include="Renderer.h" />
-    <ClInclude Include="RendererImplementation.h" />
-    <ClInclude Include="Shader.h" />
-    <ClInclude Include="ShaderImplementation.h" />
-    <ClInclude Include="Unit.h" />
-    <ClInclude Include="Utilities.h" />
-    <ClInclude Include="WindowImplementation.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Events.cpp" />
-    <ClCompile Include="GameWindow.cpp" />
-    <ClCompile Include="GLFWCode\GLFWImplementation.cpp" />
-    <ClCompile Include="GLFWCode\OpenGLPicture.cpp" />
-    <ClCompile Include="GLFWCode\OpenGLRenderer.cpp" />
-    <ClCompile Include="GLFWCode\OpenGLShader.cpp" />
-    <ClCompile Include="pch.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="Picture.cpp" />
-    <ClCompile Include="placeholder.cpp" />
-    <ClCompile Include="Renderer.cpp" />
-    <ClCompile Include="Shader.cpp" />
-    <ClCompile Include="Unit.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\glad\glad.vcxproj">
-      <Project>{7c3e8681-80a3-4f4f-8668-5cba69c9480c}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\glfw_proj\src\glfw.vcxproj">
-      <Project>{6d417d42-e696-3552-a282-31069f23b513}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\stbi\stbi.vcxproj">
-      <Project>{80221f4b-b3cf-4f8f-ba38-8deec0e2fc6a}</Project>
-    </ProjectReference>
+    <ClCompile Include="src\glad.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
