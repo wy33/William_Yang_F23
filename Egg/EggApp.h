@@ -87,7 +87,7 @@ namespace egg
 
 		//////////////////// Textures ////////////////////
 
-		//egg::Picture pic{ "../Assets/Pictures/test.png" };
+		//egg::Picture pic{ "../Assets/Images/test.png" };
 
 		mNextFrameTime = std::chrono::steady_clock::now();
 

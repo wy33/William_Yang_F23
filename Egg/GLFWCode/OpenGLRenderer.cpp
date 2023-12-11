@@ -29,6 +29,9 @@ namespace egg
 			(float)x + pic.GetWidth(), (float)y + pic.GetHeight(), 1.0f, 1.0f
 		};
 
+		EGG_LOG(pic.GetWidth());/////////////
+		EGG_LOG(pic.GetHeight());
+
 		unsigned int indices[] = {
 			0, 1, 2,
 			1, 2, 3
@@ -50,7 +53,7 @@ namespace egg
 
 		glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
-
+		//////////////////////////last parameter sizeof???
 		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 		glEnableVertexAttribArray(1);
 

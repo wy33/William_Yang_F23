@@ -12,7 +12,7 @@ public:
 
 	virtual void OnUpdate() override
 	{
-		std::cout << "Egg running" << std::endl;
+		//std::cout << "Egg running" << std::endl;
 		Draw(x, y, mPic);
 	}
 
@@ -31,8 +31,8 @@ public:
 	}
 
 private:
-	egg::Picture mPic{ "../Assets/Pictures/test.png" };
-	//egg:Unit mUnit{ "..Assets/Pictures/test.png", 100, 500 };
+	egg::Picture mPic{ "../Assets/Images/test.png" };
+	//egg:Unit mUnit{ "..Assets/Images/test.png", 100, 500 };
 
 	int x{ 100 };
 	int y{ 100 };

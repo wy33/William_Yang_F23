@@ -18,9 +18,16 @@ namespace egg
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-		//int width, height, nrChannels;
+		int width, height, nrChannels;
 		stbi_set_flip_vertically_on_load(true);
 		unsigned char* data = stbi_load(fileName.c_str(), &mWidth, &mHeight, &mChannels, 0);
+	//	const char* name = fileName.c_str();
+	//	EGG_LOG(&name);
+	//	unsigned char* data = stbi_load(fileName.c_str(), &width, &height, &nrChannels, 0);
+
+		//EGG_LOG(width);
+
+		//EGG_ERROR(data);
 
 		if (data)
 		{
@@ -33,13 +40,22 @@ namespace egg
 		}
 		stbi_image_free(data);
 
+		//mTexture = texture;
+		//mWidth = width;
+		//mHeight = height;
+		//mChannels = nrChannels;
+
+		//EGG_LOG(width);
+		//EGG_LOG(mWidth);
+		//EGG_LOG(GetWidth());
+
 		//glEnable(GL_BLEND);
 		//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	}
 
 	OpenGLPicture::~OpenGLPicture()
 	{
-		glDeleteTextures(1, &mTexture); // correct??? wrong???
+		glDeleteTextures(1, &mTexture);
 	}
 
 	void OpenGLPicture::Bind()
