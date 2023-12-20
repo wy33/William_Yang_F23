@@ -29,8 +29,22 @@ namespace egg
 			(float)x + pic.GetWidth(), (float)y + pic.GetHeight(), 1.0f, 1.0f
 		};
 
-		EGG_LOG(pic.GetWidth());/////////////
-		EGG_LOG(pic.GetHeight());
+		//float vertices[] = {
+		//	-0.5, -0.5, 0.0f, 0.0f,
+		//	0.5f, -0.5, 1.0f, 0.0f,
+		//	-0.5f, 0.5f, 0.0f, 1.0f,
+		//	0.5f, 0.5f, 1.0f, 1.0f
+		//};
+
+		//float vertices[] = {
+		//	100.f, 100.f, 0.0f, 0.0f,
+		//	100.f, 100.f, 1.0f, 0.0f,
+		//	100.f, 300.f, 0.0f, 1.0f,
+		//	300.f, 300.f, 1.0f, 1.0f
+		//};
+
+		//EGG_LOG(pic.GetWidth());/////////////
+		//EGG_LOG(pic.GetHeight());
 
 		unsigned int indices[] = {
 			0, 1, 2,
@@ -44,7 +58,7 @@ namespace egg
 		unsigned int VBO;
 		glGenBuffers(1, &VBO);
 		glBindBuffer(GL_ARRAY_BUFFER, VBO);
-		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
 		unsigned int EBO;
 		glGenBuffers(1, &EBO);
@@ -53,7 +67,7 @@ namespace egg
 
 		glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)0);
 		glEnableVertexAttribArray(0);
-		//////////////////////////last parameter sizeof???
+		
 		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 4 * sizeof(float), (void*)(2 * sizeof(float)));
 		glEnableVertexAttribArray(1);
 
@@ -73,5 +87,6 @@ namespace egg
 	{
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
+		
 	}
 }

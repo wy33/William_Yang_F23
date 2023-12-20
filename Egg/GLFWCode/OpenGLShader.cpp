@@ -15,9 +15,6 @@ namespace egg
 		std::string fragmentString{ ReadWholeFile(fragmentSF) };
 		const char* fragmentShaderSource = fragmentString.c_str();
 
-		//std::cout << vertexShaderSource << std::endl;
-		//std::cout << fragmentShaderSource << std::endl;
-
 		unsigned int vertexShader;
 		vertexShader = glCreateShader(GL_VERTEX_SHADER);
 		glShaderSource(vertexShader, 1, &vertexShaderSource, NULL);
@@ -66,9 +63,6 @@ namespace egg
 		const char* vertexShaderSource = vertexString.c_str();
 		std::string fragmentString{ ReadWholeFile(move(fragmentSF)) };
 		const char* fragmentShaderSource = fragmentString.c_str();
-
-		//std::cout << vertexShaderSource << std::endl;
-		//std::cout << fragmentShaderSource << std::endl;
 
 		unsigned int vertexShader;
 		vertexShader = glCreateShader(GL_VERTEX_SHADER);

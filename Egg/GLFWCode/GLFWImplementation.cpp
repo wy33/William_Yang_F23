@@ -10,8 +10,8 @@ namespace egg
 	GLFWImplementation::GLFWImplementation()
 	{
 		glfwInit();
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	}
 
@@ -30,7 +30,6 @@ namespace egg
 
 		glfwSetWindowUserPointer(mWindow, &mCallbacks);
 
-		// ERROR HERE?
 		glfwSetKeyCallback(mWindow, [](GLFWwindow* window, int keycode, int scancode, int action, int mods) {
 			if (action == GLFW_PRESS)
 			{
