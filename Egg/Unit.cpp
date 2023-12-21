@@ -13,6 +13,13 @@ namespace egg
 	{
 	}
 
+	//Unit::Unit(Unit& unit)
+	//{
+	//	mImage = unit.mImage;
+	//	mXPosition = unit.mXPosition;
+	//	mYPosition = unit.mYPosition;
+	//}
+
 	int Unit::GetWidth() const
 	{
 		return mImage.GetWidth();

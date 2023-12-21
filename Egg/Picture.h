@@ -11,6 +11,7 @@ namespace egg
 	{
 	public:
 		Picture(const std::string& fileName);
+		//Picture(std::string&& fileName);
 
 		void Bind();
 

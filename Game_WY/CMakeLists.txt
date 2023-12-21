@@ -1,8 +1,13 @@
 set(HEADER_FILES
-
+	Coconut.h
+	Timer.h
+	MyGame.h
 )
 
 set(SOURCE_FILES
+	Coconut.cpp
+	Timer.cpp
+	MyGame.cpp
 	main.cpp
 )
 

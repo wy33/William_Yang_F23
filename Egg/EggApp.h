@@ -37,6 +37,9 @@ namespace egg
 
 		void DefaultWindowCloseHandler();
 
+		int GetWindowWidth() const;
+		int GetWindowHeight() const;
+
 		friend typename T;
 
 	private:
@@ -151,5 +154,17 @@ namespace egg
 	void EggApp<T>::DefaultWindowCloseHandler()
 	{
 		mShouldContinue = false;
+	}
+
+	template<typename T>
+	int EggApp<T>::GetWindowWidth() const
+	{
+		return mWindow.GetWidth();
+	}
+
+	template<typename T>
+	int EggApp<T>::GetWindowHeight() const
+	{
+		return mWindow.GetHeight();
 	}
 }

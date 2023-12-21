@@ -11,6 +11,11 @@ namespace egg
 		Unit(const std::string& image, int x, int y);
 		Unit(std::string&& image, int x, int y);
 
+		//
+		//Unit(Unit& unit);
+
+		//
+
 		int GetWidth() const;
 		int GetHeight() const;
 

@@ -122,3 +122,6 @@
 #define EGG_KEY_RIGHT_ALT          346
 #define EGG_KEY_RIGHT_SUPER        347
 #define EGG_KEY_MENU               348
+
+#define EGG_MOUSE_BUTTON_LEFT      GLFW_MOUSE_BUTTON_1
+#define EGG_MOUSE_BUTTON_RIGHT     GLFW_MOUSE_BUTTON_2

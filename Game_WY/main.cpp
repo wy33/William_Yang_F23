@@ -1,41 +1,4 @@
 #include "Egg.h"
-
-#include<iostream>
-
-class MyGame : public egg::EggApp<MyGame>
-{
-public:
-	MyGame()
-	{
-		SetKeyPressedCallback([this](const egg::KeyPressed& e) { OnKeyPress(e); });
-	}
-
-	virtual void OnUpdate() override
-	{
-		std::cout << "Egg running" << std::endl;
-		Draw(x, y, mPic);
-	}
-
-	void OnKeyPress(const egg::KeyPressed& e)
-	{
-		if (e.GetKeyCode() == EGG_KEY_RIGHT)
-		{
-			x += 50;
-			//mUnit.UpdateXCoord(50);
-		}
-		else if (e.GetKeyCode() == EGG_KEY_LEFT)
-		{
-			x -= 50;
-			//mUnit.UpdateYCoord(-50);
-		}
-	}
-
-private:
-	egg::Picture mPic{ "../Assets/Images/square.png" };
-	//egg:Unit mUnit{ "..Assets/Images/test.png", 100, 500 };
-
-	int x{ 300 };
-	int y{ 300 };
-};
+#include "MyGame.h"
 
 EGG_APPLICATION_START(MyGame);

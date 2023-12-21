@@ -10,6 +10,7 @@ namespace egg
 	{
 	public:
 		OpenGLPicture(const std::string& fileName);
+		//OpenGLPicture(std::string&& fileName);
 		~OpenGLPicture();
 
 		virtual void Bind() override;
