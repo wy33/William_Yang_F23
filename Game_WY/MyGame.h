@@ -21,6 +21,8 @@ public:
 
 	void DrawCounter();
 
+	void DetermineDifficulty();
+
 	void CheckCollisions();
 
 	void CheckGameOver();

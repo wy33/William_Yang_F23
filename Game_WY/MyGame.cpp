@@ -33,6 +33,9 @@ void MyGame::OnUpdate()
 	// Only draw game if the game isn't over
 	if (!mGameOver)
 	{
+		// Set difficulty before spawning coconuts
+		DetermineDifficulty();
+
 		// Spawn coconut
 		if (ShouldSpawn())
 			SpawnCoconut();
@@ -157,6 +160,16 @@ void MyGame::DrawCounter()
 	}
 }
 
+void MyGame::DetermineDifficulty()
+{
+	// Corner case: avoid divide by 0
+	if (mTimer.GetTimer() <= 0)
+		return;
+
+	// Difficulty increases every 20 seconds
+	mDifficulty = mTimer.GetTimer() / 20;
+}
+
 // Check if seal collides with any coconuts
 // If collision detected, then mark the game as over
 void MyGame::CheckCollisions()
@@ -228,6 +241,8 @@ void MyGame::DrawDigit(int digit, int slot)
 
 bool MyGame::ShouldSpawn() const
 {
+	// Difficulty starts at 5% spawn rate
+	// and increments by 2% with every difficulty increase
 	if (std::rand() % 100 < 5 + (mDifficulty * 2))
 		return true;
 
