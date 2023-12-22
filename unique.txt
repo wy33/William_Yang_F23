@@ -6,6 +6,7 @@ Game Rules:
 
 - Coconuts will fall from the sky, if you get hit, the game ends
 - You control the seal and can move left or right using the `<` and `>` keyboard buttons
+- Keep dodging the coconuts to increase your score
 
 Controls:
 
