@@ -33,5 +33,15 @@ CSCI 39541
 
 `git clone --recursive https://github.com/wy33/William_Yang_F23.git`
 
-CMake required to build
+**CMake required to build**
 
+**(My settings)**
+
+Configure Settings:
+- Visual Studio 17 2022
+- Use default native compilers
+
+Generate Settings:
+- GLFW_BUILD_WIN32
+- GLFW_INSTALL
+- USE_MSVC_RUNTIME_LIBRARY_DLL
