@@ -28,3 +28,10 @@ CSCI 39541
 - The counter's position and length is dynamic, being able to contain as many digits as an integer can hold and should be able to adjust to a change in screen size
 - If a collision is detected, a "GAME OVER" screen appears and the game stops (you can still see the game and score, but everything stops and you can only close the window)
 - The seal (you) cannot go off screen
+
+## Cloning:
+
+`git clone --recursive https://github.com/wy33/William_Yang_F23.git`
+
+CMake required to build
+
